@@ -1,6 +1,7 @@
-package com.example.exam1
+package com.example.exam
 
 import androidx.annotation.DrawableRes
+import com.example.exam.R
 
 data class Data(
     @DrawableRes val pictureRes: Int,

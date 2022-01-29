@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">exam</string>
+    <string name="title">Exam task</string>
 </resources>
