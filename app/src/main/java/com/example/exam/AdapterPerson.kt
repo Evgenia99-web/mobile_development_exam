@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exam.databinding.ListItemBinding
 
+interface ShowPersonListner{
+    fun showPerson(name:String)
+}
 
-class AdapterPerson()
+class AdapterPerson(private val clickListener: ShowPersonListner)
     : RecyclerView.Adapter<AdapterPerson.PersonViewHolder>() {
 
 
@@ -24,11 +27,16 @@ class AdapterPerson()
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val person = persons[position]
 
+        holder.itemView.setOnClickListener{
+            clickListener.showPerson(person.name)
+        }
+
         with(holder.binding) {
             name.text = person.name
             surname.text = person.surname
             minimalInfo.text = person.minimalInfo
             image.setImageResource(person.pictureRes)
+
         }
     }
 
